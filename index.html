@@ -85,6 +85,13 @@ ul{list-style:none}
 #ntoggle{display:none}
 nav{position:sticky;top:0;z-index:900;height:var(--nav);background:rgba(6,8,16,.88);backdrop-filter:blur(28px) saturate(200%);-webkit-backdrop-filter:blur(28px) saturate(200%);border-bottom:1px solid var(--border)}
 .nav-wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
+/* Ee grid alignment unte cards side-by-side vasthayi */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 20px 0;
+}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em;color:var(--w)}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:pulse 2.5s ease-in-out infinite}
 .logo em{font-style:normal;color:var(--blue)}
@@ -379,7 +386,55 @@ footer span{color:var(--blue)}.footer-nav{display:flex;gap:1.8rem}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr}.photo-frame{aspect-ratio:16/9;max-width:100%}.photo-badge,.photo-line-top,.photo-line-bot{display:none}.skills-layout{grid-template-columns:1fr}.tl-cols{grid-template-columns:1fr}.ss-layout{grid-template-columns:1fr}.hobby-bento{grid-template-columns:1fr 1fr}.hb.big{grid-row:auto}.modal-info-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.hamburger{display:flex}.nav-links{position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;align-items:flex-start;gap:1rem;background:rgba(6,8,16,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.4rem clamp(1.2rem,5vw,3.5rem);display:none}#ntoggle:checked~.nav-wrap .nav-links{display:flex}#ntoggle:checked~.nav-wrap .hamburger span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}#ntoggle:checked~.nav-wrap .hamburger span:nth-child(2){opacity:0}#ntoggle:checked~.nav-wrap .hamburger span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}.nav-hire{display:none}.stat-strip{grid-template-columns:repeat(2,1fr)}.hobby-bento{grid-template-columns:1fr}}
 </style>
-</head>
+<script>
+  async function loadProjects() {
+    // 1. Ikkada 'project-grid' ane ID undho ledho chusko
+    const container = document.getElementById('project-container'); 
+    
+    try {
+      const response = await fetch('http://localhost:5001/api/projects');
+      const projects = await response.json();
+
+      container.innerHTML = ''; // Loading text clear chesthundhi
+
+      // 2. Wrap all cards inside a row/grid div for better alignment
+      let gridHTML = '<div class="projects-grid">'; // CSS lo grid class unte adhi pettu
+
+      projects.forEach(proj => {
+        gridHTML += `
+          <article class="proj-card" 
+                   data-proj-title="${proj.title}" 
+                   data-proj-emoji="${proj.emoji}"
+                   data-proj-tags="${proj.tags}"
+                   data-proj-problem="${proj.description}"
+                   data-proj-demo="${proj.liveLink}">
+            <div class="pc-thumb">
+               <span class="pc-emoji">${proj.emoji}</span>
+               <div class="pc-tags"><span class="tag">${proj.tags}</span></div>
+            </div>
+            <div class="pc-body">
+              <h3>${proj.title}</h3>
+              <p>${proj.description}</p>
+              <div class="pc-foot">
+                <button class="btn-view-project" onclick="openProjectModal(this.closest('.proj-card'))">
+                  View Details &rarr;
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      });
+
+      gridHTML += '</div>';
+      container.innerHTML = gridHTML;
+
+    } catch (err) {
+      console.error("Error:", err);
+      container.innerHTML = `<p style="color:red">Backend off lo undhi.</p>`;
+    }
+}
+  window.onload = loadProjects;
+</script></head>
 <body>
 <!-- NAV -->
 <input type="checkbox" id="ntoggle" hidden>
@@ -424,6 +479,8 @@ footer span{color:var(--blue)}.footer-nav{display:flex;gap:1.8rem}
     <line x1="12" y1="15" x2="12" y2="3"/>
   </svg>
 </a>
+<div class="proj-grid" id="project-container">
+    </div>
         </div>
       </div>
       <div class="hero-panel">

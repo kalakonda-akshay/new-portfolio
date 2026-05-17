@@ -70,11 +70,11 @@ function setupSuggestionForm() {
     status.textContent = "Sending...";
     const payload = Object.fromEntries(new FormData(form).entries());
     try {
-      await apiRequest("/api/suggestions", {
+      const result = await apiRequest("/api/suggestions", {
         method: "POST",
         body: JSON.stringify(payload),
       });
-      status.textContent = "Thanks. Your suggestion was sent to Akshay.";
+      status.textContent = result.message || "Thanks. Your suggestion was saved.";
       form.reset();
     } catch (error) {
       status.textContent = "Could not reach the backend. Please email Akshay directly for now.";

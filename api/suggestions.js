@@ -18,6 +18,33 @@ function createTransporter() {
   });
 }
 
+async function sendFallbackEmail({ name, email, subject, message }) {
+  const targetEmail = process.env.MAIL_TO || "akshaykalakonda9@gmail.com";
+  const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      subject: `Portfolio suggestion: ${subject}`,
+      message: `From: ${name} <${email}>\n\n${message}`,
+      _subject: `Portfolio suggestion: ${subject}`,
+      _template: "table",
+      _captcha: "false",
+    }),
+  });
+
+  if (!response.ok) {
+    const text = await response.text().catch(() => "");
+    throw new Error(text || "Fallback email service failed.");
+  }
+
+  return response.json().catch(() => ({ success: true }));
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
@@ -35,6 +62,7 @@ module.exports = async function handler(req, res) {
     await connectDB();
     const suggestion = await Suggestion.create({ name, email, subject, message });
     const transporter = createTransporter();
+    let delivery = "stored";
 
     if (transporter) {
       await transporter.sendMail({
@@ -44,11 +72,24 @@ module.exports = async function handler(req, res) {
         subject: `Portfolio suggestion: ${subject}`,
         text: `From: ${name} <${email}>\n\n${message}`,
       });
+      delivery = "smtp";
+    } else {
+      try {
+        await sendFallbackEmail({ name, email, subject, message });
+        delivery = "fallback";
+      } catch (mailError) {
+        delivery = "stored";
+      }
     }
 
     return res.status(201).json({
-      message: transporter ? "Suggestion saved and emailed." : "Suggestion saved. Configure SMTP to enable email delivery.",
+      message: delivery === "smtp"
+        ? "Suggestion saved and emailed."
+        : delivery === "fallback"
+          ? "Suggestion saved and email delivery requested. Check your inbox for any one-time FormSubmit activation email."
+          : "Suggestion saved in MongoDB. Add SMTP_PASS as a Gmail App Password in Vercel to receive it by email.",
       suggestionId: suggestion._id,
+      delivery,
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });

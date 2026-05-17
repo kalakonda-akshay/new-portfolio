@@ -1,10 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#07111f"/>
-  <rect x="70" y="70" width="1060" height="660" rx="28" fill="#0d1728" stroke="#3d8bff" stroke-width="4"/>
-  <text x="600" y="190" text-anchor="middle" fill="#f4f6ff" font-family="Arial" font-size="54" font-weight="700">Prodigy InfoTech</text>
-  <text x="600" y="270" text-anchor="middle" fill="#5ba3ff" font-family="Arial" font-size="34">Internship Certificate</text>
-  <text x="600" y="385" text-anchor="middle" fill="#c0c8e0" font-family="Arial" font-size="42">Kalakonda Akshay</text>
-  <text x="600" y="455" text-anchor="middle" fill="#c0c8e0" font-family="Arial" font-size="28">Full-Stack Web Development Intern</text>
-  <text x="600" y="515" text-anchor="middle" fill="#7a85a8" font-family="Arial" font-size="24">April 15, 2026 - May 15, 2026</text>
-  <text x="600" y="610" text-anchor="middle" fill="#00d4ff" font-family="Arial" font-size="24">React · Node.js · Express · MongoDB</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1688" height="1187" viewBox="0 0 1688 1187">
+  <defs>
+    <linearGradient id="blueBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#77b7ff"/>
+      <stop offset="1" stop-color="#338dff"/>
+    </linearGradient>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:Arial,Helvetica,sans-serif}
+      .dark{fill:#343b49}
+      .blue{fill:#428bff}
+    </style>
+  </defs>
+  <rect width="1688" height="1187" fill="url(#blueBg)"/>
+  <path d="M63 0h155l205 205H0V63A63 63 0 0 1 63 0Z" fill="#86c2ff" opacity=".45"/>
+  <path d="M978 0h139l66 205H913Z" fill="#4aa0ff" opacity=".55"/>
+  <path d="M1688 985v202h-260l260-70Z" fill="#4aa0ff" opacity=".65"/>
+  <rect x="55" y="39" width="1578" height="1109" rx="34" fill="#fff"/>
+
+  <g transform="translate(190 125)">
+    <g fill="none" stroke="#428bff" stroke-width="6" stroke-linecap="round">
+      <path d="M72 30v-28M72 145v28M30 72H2M145 72h28M43 43 23 23M101 43l20-20M43 101l-20 20M101 101l20 20"/>
+      <circle cx="72" cy="72" r="40"/>
+      <path d="M47 114h50M52 127h40M58 139h28"/>
+      <path d="M52 108V84h40v24"/>
+    </g>
+    <text x="190" y="58" class="serif blue" font-size="48" font-weight="700">PRODIGY</text>
+    <text x="190" y="112" class="serif blue" font-size="48" font-weight="700">INFOTECH</text>
+  </g>
+
+  <text x="220" y="385" class="serif dark" font-size="28">CIN: PIT/APR26/10508</text>
+  <text x="1260" y="385" class="serif dark" font-size="28">Issued on: 17/05/2026</text>
+  <text x="1200" y="214" class="serif dark" font-size="92" text-anchor="middle">CERTIFICATE</text>
+  <text x="1200" y="286" class="serif dark" font-size="48" text-anchor="middle">OF COMPLETION</text>
+
+  <text x="844" y="458" class="sans dark" font-size="32" text-anchor="middle">This Certificate is proudly presented to</text>
+  <text x="844" y="630" class="serif dark" font-size="104" text-anchor="middle">Kalakonda Akshay</text>
+  <line x1="205" y1="654" x2="1488" y2="654" stroke="#343b49" stroke-width="3"/>
+  <text x="844" y="718" class="sans dark" font-size="31" text-anchor="middle">
+    <tspan>for successfully completing a </tspan><tspan font-weight="700">1-month</tspan><tspan> internship from </tspan><tspan font-weight="700">15th April, 2026</tspan>
+  </text>
+  <text x="844" y="760" class="sans dark" font-size="31" text-anchor="middle">
+    <tspan>to </tspan><tspan font-weight="700">15th May, 2026</tspan><tspan> in </tspan><tspan font-weight="700">Full-Stack Web Development</tspan><tspan> with outstanding</tspan>
+  </text>
+  <text x="844" y="802" class="sans dark" font-size="31" text-anchor="middle">remarks at Prodigy InfoTech.</text>
+
+  <g transform="translate(1338 910)">
+    <rect width="170" height="170" fill="#fff" stroke="#d8e1f0"/>
+    <path d="M20 20h52v52H20zm78 0h52v52H98zM20 98h52v52H20z" fill="none" stroke="#111" stroke-width="10"/>
+    <path d="M92 92h15v15H92zm25 0h15v15h-15zm-25 25h15v15H92zm50 0h15v15h-15zm-25 25h15v15h-15zM92 142h15v15H92z" fill="#111"/>
+  </g>
+  <text x="418" y="1102" class="serif dark" font-size="28">contact@prodigyinfotech.dev</text>
+  <text x="1080" y="1102" class="serif dark" font-size="28">www.prodigyinfotech.dev</text>
+  <circle cx="845" cy="986" r="64" fill="#428bff" opacity=".9"/>
+  <path d="m845 930 18 37 41 6-30 29 7 41-36-19-36 19 7-41-30-29 41-6z" fill="#fff"/>
 </svg>

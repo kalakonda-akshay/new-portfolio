@@ -6,7 +6,7 @@ const internships = [
     role: "Full-Stack Web Development Intern",
     duration: "April 15, 2026 - May 15, 2026",
     focus: "MERN Stack application building and deployment.",
-    certificate: "/assets/certificates/prodigy-cert.png",
+    certificate: "/assets/certificates/prodigy-cert.svg",
     skills: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
@@ -14,15 +14,15 @@ const internships = [
     role: "Full-Stack Developer Intern",
     duration: "Full-stack applications and system integration",
     focus: "Full-stack applications and system integration.",
-    certificate: "/assets/certificates/pridology-cert.png",
+    certificate: "/assets/certificates/pridology-cert.svg",
     skills: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
     company: "Thiranex",
     role: "Full-Stack Developer Intern",
-    duration: "Web development and framework architecture",
+    duration: "April 15, 2026 - May 14, 2026",
     focus: "Web development and framework architecture.",
-    certificate: "/assets/certificates/thiranex-cert.png",
+    certificate: "/assets/certificates/thiranex-cert.svg",
     skills: ["React", "Node.js", "Express", "MongoDB"],
   },
 ];

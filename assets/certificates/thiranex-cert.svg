@@ -1,10 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#07111f"/>
-  <rect x="70" y="70" width="1060" height="660" rx="28" fill="#0d1728" stroke="#00e599" stroke-width="4"/>
-  <text x="600" y="190" text-anchor="middle" fill="#f4f6ff" font-family="Arial" font-size="54" font-weight="700">Thiranex</text>
-  <text x="600" y="270" text-anchor="middle" fill="#00e599" font-family="Arial" font-size="34">Internship Certificate</text>
-  <text x="600" y="385" text-anchor="middle" fill="#c0c8e0" font-family="Arial" font-size="42">Kalakonda Akshay</text>
-  <text x="600" y="455" text-anchor="middle" fill="#c0c8e0" font-family="Arial" font-size="28">Full-Stack Developer Intern</text>
-  <text x="600" y="535" text-anchor="middle" fill="#7a85a8" font-family="Arial" font-size="24">Web development and framework architecture</text>
-  <text x="600" y="610" text-anchor="middle" fill="#3d8bff" font-family="Arial" font-size="24">React · Node.js · Express · MongoDB</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1681" height="1183" viewBox="0 0 1681 1183">
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:Arial,Helvetica,sans-serif}
+      .blue{fill:#213f97}
+      .dark{fill:#101827}
+    </style>
+  </defs>
+  <rect width="1681" height="1183" fill="#212936"/>
+  <rect x="30" y="24" width="1621" height="1135" fill="#fff" stroke="#213f97" stroke-width="14"/>
+  <path d="M30 156V24h132M1534 24h117v132M30 1037v122h132M1534 1159h117v-122" fill="none" stroke="#213f97" stroke-width="14"/>
+  <rect x="60" y="54" width="1561" height="1075" fill="none" stroke="#dce4f2" stroke-width="2"/>
+
+  <g transform="translate(185 122)">
+    <text x="0" y="70" class="sans" fill="#2d5cff" font-size="78" font-weight="700">Thiranex</text>
+    <path d="M168 13c58 0 92 13 132 28" fill="none" stroke="#2d5cff" stroke-width="6"/>
+    <text x="41" y="91" class="sans blue" font-size="12" font-weight="700" letter-spacing="3">SKILL DEVELOPMENT &amp; FUTURE TECH</text>
+  </g>
+  <g transform="translate(1438 126)">
+    <rect x="0" y="50" width="80" height="38" fill="#111"/>
+    <text x="40" y="110" class="sans dark" font-size="7" text-anchor="middle">MICRO, SMALL &amp; MEDIUM ENTERPRISES</text>
+    <path d="M40 0c20 16 20 34 0 50c-20-16-20-34 0-50Z" fill="#d8a632"/>
+  </g>
+
+  <text x="840" y="342" class="serif blue" font-size="98" text-anchor="middle" letter-spacing="8">Certificate</text>
+  <text x="840" y="397" class="sans dark" font-size="25" text-anchor="middle" letter-spacing="20" font-weight="700">OF ACHIEVEMENT</text>
+  <text x="840" y="498" class="sans" fill="#4b5563" font-size="30" font-style="italic" text-anchor="middle">This acknowledgment is proudly presented to</text>
+  <text x="840" y="580" class="serif dark" font-size="68" text-anchor="middle">KALAKONDA AKSHAY</text>
+  <line x1="425" y1="613" x2="1268" y2="613" stroke="#cbd5e1" stroke-width="4"/>
+
+  <text x="840" y="735" class="sans dark" font-size="31" text-anchor="middle">
+    <tspan>This is to certify that </tspan><tspan class="blue" font-weight="700">KALAKONDA AKSHAY</tspan><tspan> has successfully completed an internship</tspan>
+  </text>
+  <text x="840" y="784" class="sans dark" font-size="31" text-anchor="middle">
+    <tspan>in </tspan><tspan class="blue" font-weight="700">Full Stack Development</tspan><tspan> from </tspan><tspan class="blue" font-weight="700">15 Apr 2026</tspan><tspan> to </tspan><tspan class="blue" font-weight="700">14 May 2026.</tspan>
+  </text>
+
+  <g transform="translate(166 948)">
+    <rect width="150" height="150" fill="#fff" stroke="#d8e1f0"/>
+    <path d="M17 17h50v50H17zm66 0h50v50H83zM17 83h50v50H17z" fill="none" stroke="#111" stroke-width="9"/>
+    <path d="M82 82h14v14H82zm22 0h14v14h-14zm-22 22h14v14H82zm44 0h14v14h-14zm-22 22h14v14h-14zM82 126h14v14H82z" fill="#111"/>
+  </g>
+  <text x="340" y="1015" class="sans" fill="#475569" font-size="16" letter-spacing="4">VERIFIED CERTIFICATE</text>
+  <text x="340" y="1036" class="sans blue" font-size="18" font-weight="700">ID: THX-MAY126-419</text>
+
+  <path d="M1280 1022h390" stroke="#213f97" stroke-width="5"/>
+  <path d="M1392 1004c35-90 90 40 152-70c-23 70-58 95-124 62" fill="none" stroke="#213f97" stroke-width="4"/>
+  <text x="1450" y="1068" class="sans blue" font-size="30" font-weight="700" text-anchor="middle">Hariharan M</text>
+  <text x="1450" y="1094" class="sans dark" font-size="22" text-anchor="middle">Founder &amp; CEO</text>
 </svg>

@@ -64,20 +64,43 @@ async function loadProjects() {
 function setupSuggestionForm() {
   const form = document.getElementById("suggestionForm");
   const status = document.getElementById("suggestionStatus");
+  const toast = document.getElementById("premiumToast");
   if (!form) return;
+  const submit = form.querySelector("button[type='submit']");
+  const showToast = (title, message) => {
+    if (!toast) return;
+    const strong = toast.querySelector("strong");
+    const span = toast.querySelector("div span");
+    if (strong) strong.textContent = title;
+    if (span) span.textContent = message;
+    toast.classList.add("show");
+    window.clearTimeout(showToast.timer);
+    showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 4200);
+  };
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    status.textContent = "Sending...";
+    if (status) status.textContent = "Sending...";
+    if (submit) {
+      submit.disabled = true;
+      submit.style.opacity = "0.72";
+    }
     const payload = Object.fromEntries(new FormData(form).entries());
     try {
       const result = await apiRequest("/api/suggestions", {
         method: "POST",
         body: JSON.stringify(payload),
       });
-      status.textContent = result.message || "Thanks. Your suggestion was saved.";
+      if (status) status.textContent = result.message || "Thanks. Your suggestion was saved.";
+      showToast("Message sent", "Your suggestion was saved and emailed to Akshay.");
       form.reset();
     } catch (error) {
-      status.textContent = "Could not reach the backend. Please email Akshay directly for now.";
+      if (status) status.textContent = "Could not reach the backend. Please email Akshay directly for now.";
+      showToast("Email fallback", "Please email Akshay directly if this keeps failing.");
+    } finally {
+      if (submit) {
+        submit.disabled = false;
+        submit.style.opacity = "";
+      }
     }
   });
 }

@@ -1,5 +1,46 @@
 const Project = require("../models/Project");
 
+const fallbackProjects = [
+  {
+    title: "Real-Time Chat Application",
+    description: "Built a real-time chat application using MERN Stack and Socket.IO featuring authentication, instant messaging, typing indicators and responsive UI.",
+    emoji: "Chat",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
+    features: ["Authentication", "Instant messaging", "Typing indicators", "Responsive UI"],
+    liveLink: "https://chat-app-chi-pink.vercel.app",
+    githubLink: "https://github.com/kalakonda-akshay/chat-app",
+    featured: true,
+  },
+  {
+    title: "Social Media Platform",
+    description: "Built a MERN social platform with responsive feed UI, user-centric flows, API-driven data and deployment-ready frontend.",
+    emoji: "Social",
+    techStack: ["React", "Node.js", "Express", "MongoDB"],
+    features: ["Responsive feed", "Profile flows", "REST API structure"],
+    liveLink: "https://you-are-an-expert-full-stack-2-bx86debtd.vercel.app/",
+    githubLink: "https://github.com/kalakonda-akshay/social-media-platform",
+    featured: true,
+  },
+  {
+    title: "Internship Projects",
+    description: "Curated recent deployed work including Secure Auth, Employee, ShopFlow, AuraMart, BlogFlow and TaskFlow with GitHub source references.",
+    emoji: "Work",
+    techStack: ["React", "TypeScript", "JavaScript", "Vercel"],
+    features: ["Secure Auth", "Employee dashboard", "ShopFlow app"],
+    liveLink: "https://frontend-ruddy-chi-23.vercel.app/",
+    githubLink: "https://github.com/kalakonda-akshay",
+  },
+  {
+    title: "GrameenTrack",
+    description: "AI platform for tracking rural housing construction using location-tagged data and machine learning.",
+    emoji: "AI",
+    techStack: ["Python", "ML", "AI"],
+    features: ["84% ML accuracy", "Progress verification", "Live deployment"],
+    liveLink: "https://grameen-build-track.base44.app",
+    githubLink: "https://github.com/kalakonda-akshay",
+  },
+];
+
 const seedProjects = async (req, res, next) => {
   try {
     const projects = [
@@ -53,6 +94,10 @@ const seedProjects = async (req, res, next) => {
 
 const getProjects = async (req, res, next) => {
   try {
+    if (!req.app.locals.dbConnected) {
+      return res.json(fallbackProjects);
+    }
+
     const projects = await Project.find().sort({ featured: -1, createdAt: -1 });
     res.json(projects);
   } catch (error) {

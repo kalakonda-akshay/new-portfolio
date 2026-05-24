@@ -50,9 +50,14 @@ const createSuggestion = async (req, res, next) => {
       throw new Error("Name, email, subject and message are required.");
     }
 
-    const suggestion = await Suggestion.create({ name, email, subject, message });
     const transporter = createTransporter();
-    let delivery = "stored";
+    let suggestion = null;
+    let delivery = "not_sent";
+
+    if (req.app.locals.dbConnected) {
+      suggestion = await Suggestion.create({ name, email, subject, message });
+      delivery = "stored";
+    }
 
     if (transporter) {
       await transporter.sendMail({
@@ -68,17 +73,25 @@ const createSuggestion = async (req, res, next) => {
         await sendFallbackEmail({ name, email, subject, message });
         delivery = "fallback";
       } catch (mailError) {
+        if (!suggestion) {
+          res.status(503);
+          throw new Error("Message could not be delivered because MongoDB and email delivery are unavailable locally.");
+        }
         delivery = "stored";
       }
     }
 
-    res.status(201).json({
+    res.status(suggestion ? 201 : 200).json({
       message: delivery === "smtp"
-        ? "Suggestion saved and emailed."
+        ? suggestion
+          ? "Suggestion saved and emailed."
+          : "Suggestion emailed. MongoDB is currently offline locally."
         : delivery === "fallback"
-          ? "Suggestion saved and email delivery requested. Check your inbox for any one-time FormSubmit activation email."
+          ? suggestion
+            ? "Suggestion saved and email delivery requested. Check your inbox for any one-time FormSubmit activation email."
+            : "Email delivery requested. Check your inbox for any one-time FormSubmit activation email."
           : "Suggestion saved in MongoDB. Add SMTP_PASS as a Gmail App Password to receive it by email.",
-      suggestionId: suggestion._id,
+      suggestionId: suggestion?._id,
       delivery,
     });
   } catch (error) {

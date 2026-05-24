@@ -6,15 +6,7 @@ const internships = [
     role: "Full-Stack Web Development Intern",
     duration: "April 15, 2026 - May 15, 2026",
     focus: "MERN Stack application building and deployment.",
-    certificate: "/assets/certificates/prodigy-cert.svg",
-    skills: ["React", "Node.js", "Express", "MongoDB"],
-  },
-  {
-    company: "Pridology Infotech",
-    role: "Full-Stack Developer Intern",
-    duration: "Full-stack applications and system integration",
-    focus: "Full-stack applications and system integration.",
-    certificate: "/assets/certificates/pridology-cert.svg",
+    certificate: "/assets/certificates/prodigy-internship-certificate.jpg",
     skills: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
@@ -22,7 +14,7 @@ const internships = [
     role: "Full-Stack Developer Intern",
     duration: "April 15, 2026 - May 14, 2026",
     focus: "Web development and framework architecture.",
-    certificate: "/assets/certificates/thiranex-cert.svg",
+    certificate: "/assets/certificates/thiranex-internship-certificate.jpg",
     skills: ["React", "Node.js", "Express", "MongoDB"],
   },
 ];
@@ -43,7 +35,7 @@ export default function InternshipCertificates() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {internships.map((item) => (
             <article
               key={item.company}

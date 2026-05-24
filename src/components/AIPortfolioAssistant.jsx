@@ -20,7 +20,7 @@ const quickQuestions = [
     label: "Internships",
     question: "Is he open to internships?",
     answer:
-      "Yes. Akshay completed a Full-Stack Web Development internship at Prodigy InfoTech and accepted upcoming developer roles at Pridology Infotech and Thiranex.",
+      "Yes. Akshay completed Full-Stack Developer internship work with Prodigy InfoTech and Thiranex, and is open to internships, freelance projects, and AI/full-stack collaborations.",
   },
   {
     id: "fit",

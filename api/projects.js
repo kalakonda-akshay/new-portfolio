@@ -47,7 +47,7 @@ const fallbackProjects = [
     emoji: "Shop",
     techStack: ["JavaScript", "React", "E-commerce", "Vercel"],
     features: ["Product UI", "Responsive layout", "Live deployment"],
-    liveLink: "https://shopflow-ten.vercel.app",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/shopflow",
   },
   {
@@ -56,7 +56,7 @@ const fallbackProjects = [
     emoji: "Mart",
     techStack: ["JavaScript", "React", "UI/UX", "Frontend"],
     features: ["Catalog experience", "Reusable components", "Modern layout"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/auramart",
   },
   {
@@ -65,7 +65,7 @@ const fallbackProjects = [
     emoji: "Blog",
     techStack: ["JavaScript", "React", "Content", "Frontend"],
     features: ["Article layouts", "Clean typography", "Content-focused UI"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/blogflow",
   },
   {
@@ -74,7 +74,7 @@ const fallbackProjects = [
     emoji: "Tasks",
     techStack: ["JavaScript", "React", "Productivity", "UI"],
     features: ["Task organization", "Action-first UI", "Responsive screens"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/taskflow",
   },
   {
@@ -83,7 +83,7 @@ const fallbackProjects = [
     emoji: "Cyber",
     techStack: ["Python", "Cybersecurity", "SQLi", "Automation"],
     features: ["SQLi detection", "Banner grabbing", "Schema extraction"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/aks_cyber",
   },
   {
@@ -92,7 +92,7 @@ const fallbackProjects = [
     emoji: "Data",
     techStack: ["Python", "Data Science", "Pandas", "ML"],
     features: ["EDA", "Hotspot analysis", "Prediction workflow"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/traffic_accident_analyser",
   },
   {
@@ -101,7 +101,7 @@ const fallbackProjects = [
     emoji: "AI",
     techStack: ["Python", "NLP", "AI", "Summarization"],
     features: ["Text summarization", "Student-focused output", "AI workflow"],
-    liveLink: "#",
+    liveLink: "",
     githubLink: "https://github.com/kalakonda-akshay/ai-notes-summarizer",
   },
   {
@@ -110,7 +110,7 @@ const fallbackProjects = [
     emoji: "City",
     techStack: ["HTML", "CSS", "Civic Tech", "Frontend"],
     features: ["Civic workflows", "Community UI", "Accessible pages"],
-    liveLink: "#",
+    liveLink: "https://tu63991.softr.app/",
     githubLink: "https://github.com/kalakonda-akshay/SmartCity",
   },
 ];

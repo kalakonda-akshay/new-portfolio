@@ -13,9 +13,9 @@ const milestones = [
   },
   {
     icon: "cert",
-    title: "NPTEL Certifications",
-    meta: "IIT Kharagpur · Java · Python",
-    body: "Completed NPTEL Programming in Java through IIT Kharagpur and NPTEL Python for Data Science certifications.",
+    title: "NPTEL Programming in Java",
+    meta: "IIT Kharagpur · NPTEL · 79%",
+    body: "Completed NPTEL Programming in Java through IIT Kharagpur with a consolidated score of 79%, strengthening Java, OOP, and core programming fundamentals.",
   },
   {
     icon: "book",

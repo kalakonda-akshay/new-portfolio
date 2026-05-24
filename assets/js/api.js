@@ -38,7 +38,7 @@ function renderApiProject(project) {
         <p>${project.description || ""}</p>
         ${Array.isArray(project.features) && project.features.length ? `<ul class="feature-list">${project.features.slice(0, 3).map((feature) => `<li>${feature}</li>`).join("")}</ul>` : ""}
         <div class="project-actions">
-          ${project.liveLink ? `<a class="btn-view-project" href="${project.liveLink}" target="_blank" rel="noopener">Live Demo</a>` : ""}
+          ${project.liveLink && project.liveLink !== "#" ? `<a class="btn-view-project" href="${project.liveLink}" target="_blank" rel="noopener">Live Demo</a>` : ""}
           <a class="btn-view-project" href="${project.githubLink || project.github || "https://github.com/kalakonda-akshay"}" target="_blank" rel="noopener">GitHub</a>
           <button class="btn-view-project" onclick="openProjectModal(this.closest('[data-proj-title]'))">Details</button>
         </div>

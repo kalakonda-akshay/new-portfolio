@@ -56,7 +56,7 @@ const fallbackProjects = [
     emoji: "Mart",
     techStack: ["JavaScript", "React", "UI/UX", "Frontend"],
     features: ["Catalog experience", "Reusable components", "Modern layout"],
-    liveLink: "",
+    liveLink: "https://kalakonda-akshay.github.io/auramart/",
     githubLink: "https://github.com/kalakonda-akshay/auramart",
   },
   {

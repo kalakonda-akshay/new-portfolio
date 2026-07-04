@@ -105,6 +105,15 @@ const fallbackProjects = [
     githubLink: "https://github.com/kalakonda-akshay/ai-notes-summarizer",
   },
   {
+    title: "TruthLens",
+    description: "AI-powered credibility analysis project built to help users evaluate digital content, detect misinformation signals and review source trust indicators through a clean, recruiter-ready interface.",
+    emoji: "AI",
+    techStack: ["React", "AI", "JavaScript", "Content Analysis"],
+    features: ["Credibility scoring", "Misinformation signal review", "Source trust indicators"],
+    liveLink: "",
+    githubLink: "https://github.com/kalakonda-akshay/truthlens",
+  },
+  {
     title: "SmartCity",
     description: "Civic technology project for city-service style workflows, issue reporting concepts and community-first UI thinking.",
     emoji: "City",
@@ -114,6 +123,12 @@ const fallbackProjects = [
     githubLink: "https://github.com/kalakonda-akshay/SmartCity",
   },
 ];
+
+function mergeProjects(projects = []) {
+  const seen = new Set(projects.map((project) => project.title));
+  const missingFallbacks = fallbackProjects.filter((project) => !seen.has(project.title));
+  return [...projects, ...missingFallbacks];
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -135,8 +150,8 @@ module.exports = async function handler(req, res) {
       return res.status(405).json({ message: "Method not allowed" });
     }
 
-    const projects = await Project.find().sort({ featured: -1, createdAt: -1 });
-    return res.status(200).json(projects);
+    const projects = await Project.find().sort({ featured: -1, createdAt: -1 }).lean();
+    return res.status(200).json(mergeProjects(projects));
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

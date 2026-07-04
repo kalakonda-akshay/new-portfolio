@@ -39,7 +39,22 @@ const fallbackProjects = [
     liveLink: "https://grameen-build-track.base44.app",
     githubLink: "https://github.com/kalakonda-akshay",
   },
+  {
+    title: "TruthLens",
+    description: "AI-powered credibility analysis project built to help users evaluate digital content, detect misinformation signals and review source trust indicators through a clean interface.",
+    emoji: "AI",
+    techStack: ["React", "AI", "JavaScript", "Content Analysis"],
+    features: ["Credibility scoring", "Misinformation signal review", "Source trust indicators"],
+    liveLink: "",
+    githubLink: "https://github.com/kalakonda-akshay/truthlens",
+  },
 ];
+
+function mergeProjects(projects = []) {
+  const seen = new Set(projects.map((project) => project.title));
+  const missingFallbacks = fallbackProjects.filter((project) => !seen.has(project.title));
+  return [...projects, ...missingFallbacks];
+}
 
 const seedProjects = async (req, res, next) => {
   try {
@@ -82,6 +97,15 @@ const seedProjects = async (req, res, next) => {
         liveLink: "https://grameen-build-track.base44.app",
         githubLink: "https://github.com/kalakonda-akshay",
       },
+      {
+        title: "TruthLens",
+        description: "AI-powered credibility analysis project built to help users evaluate digital content, detect misinformation signals and review source trust indicators through a clean interface.",
+        emoji: "AI",
+        techStack: ["React", "AI", "JavaScript", "Content Analysis"],
+        features: ["Credibility scoring", "Misinformation signal review", "Source trust indicators"],
+        liveLink: "",
+        githubLink: "https://github.com/kalakonda-akshay/truthlens",
+      },
     ];
 
     await Project.deleteMany({});
@@ -98,8 +122,8 @@ const getProjects = async (req, res, next) => {
       return res.json(fallbackProjects);
     }
 
-    const projects = await Project.find().sort({ featured: -1, createdAt: -1 });
-    res.json(projects);
+    const projects = await Project.find().sort({ featured: -1, createdAt: -1 }).lean();
+    res.json(mergeProjects(projects));
   } catch (error) {
     next(error);
   }

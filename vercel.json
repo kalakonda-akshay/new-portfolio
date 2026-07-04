@@ -2,5 +2,15 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/projects/truthlens-ai",
+      "destination": "https://frontend-ruddy-chi-23.vercel.app/projects/truthlens-ai"
+    },
+    {
+      "source": "/projects/truthlens-ai/:path*",
+      "destination": "https://frontend-ruddy-chi-23.vercel.app/projects/truthlens-ai/:path*"
+    }
+  ]
 }

@@ -105,13 +105,31 @@ const fallbackProjects = [
     githubLink: "https://github.com/kalakonda-akshay/ai-notes-summarizer",
   },
   {
-    title: "TruthLens",
-    description: "AI-powered credibility analysis project built to help users evaluate digital content, detect misinformation signals and review source trust indicators through a clean, recruiter-ready interface.",
+    title: "TruthLens AI",
+    description: "Digital forensics and cyber verification platform for detecting deepfakes, AI-generated media, voice clones, phishing URLs and scam emails with explainable risk reports.",
     emoji: "AI",
-    techStack: ["React", "AI", "JavaScript", "Content Analysis"],
-    features: ["Credibility scoring", "Misinformation signal review", "Source trust indicators"],
+    techStack: ["Python", "AI", "Cybersecurity", "Forensics"],
+    features: ["Deepfake and AI-media checks", "Phishing and scam analysis", "Risk scoring with evidence previews"],
+    liveLink: "https://akshaykalakonda.qzz.io/projects/truthlens-ai",
+    githubLink: "https://github.com/kalakonda-akshay/truth_lens",
+  },
+  {
+    title: "Akshar AI",
+    description: "AI-powered education platform for B.Tech students with structured learning flows, academic support resources and a clean student-focused interface.",
+    emoji: "Edu",
+    techStack: ["HTML", "AI", "Education", "Vercel"],
+    features: ["B.Tech learning support", "Student-friendly resources", "Responsive educational UI"],
+    liveLink: "https://akshar-ai-rho.vercel.app",
+    githubLink: "https://github.com/kalakonda-akshay/akshar-ai.io",
+  },
+  {
+    title: "Grievance Mithra",
+    description: "Student grievance-management platform concept for submitting, tracking and resolving complaints through a clear workflow and admin-ready issue handling experience.",
+    emoji: "Gov",
+    techStack: ["React", "Node.js", "Workflow", "Dashboard"],
+    features: ["Complaint submission flow", "Status tracking", "Admin resolution workflow"],
     liveLink: "",
-    githubLink: "https://github.com/kalakonda-akshay/truthlens",
+    githubLink: "https://github.com/kalakonda-akshay",
   },
   {
     title: "SmartCity",
@@ -124,10 +142,14 @@ const fallbackProjects = [
   },
 ];
 
+function normalizeProjectTitle(title = "") {
+  return title === "TruthLens" ? "TruthLens AI" : title;
+}
+
 function mergeProjects(projects = []) {
-  const seen = new Set(projects.map((project) => project.title));
-  const missingFallbacks = fallbackProjects.filter((project) => !seen.has(project.title));
-  return [...projects, ...missingFallbacks];
+  const fallbackTitles = new Set(fallbackProjects.map((project) => normalizeProjectTitle(project.title)));
+  const customProjects = projects.filter((project) => !fallbackTitles.has(normalizeProjectTitle(project.title)));
+  return [...fallbackProjects, ...customProjects];
 }
 
 module.exports = async function handler(req, res) {
